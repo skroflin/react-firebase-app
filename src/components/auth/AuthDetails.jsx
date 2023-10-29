@@ -4,6 +4,7 @@ import { auth } from "../../firebase/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { Button } from 'primereact/button';
 import { useNavigate } from "react-router-dom";
+import 'primeicons/primeicons.css';
 
 export const AuthDetails = () => {
     const [authUser, setAuthUser] = useState(null);
@@ -31,7 +32,7 @@ export const AuthDetails = () => {
 
     return(
         <div>
-            { authUser? <><p>{`Signed in as ${authUser.email}`}</p><Button size="large" onClick={userSignOut} label="Sign out"/></> : <p>Signed Out</p> }
+            { authUser? <><p>{`Signed in as ${authUser.email}`}</p><Button size="large" onClick={userSignOut} label="Sign out" icon="pi pi-fw pi-user-minus"/></> : <p>Signed Out</p> }
         </div>
     )
 }

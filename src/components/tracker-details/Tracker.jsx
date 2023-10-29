@@ -4,9 +4,9 @@ import { Calendar } from "primereact/calendar";
 import { InputTextarea } from "primereact/inputtextarea";
 import { NavBar } from "../NavBar";
 import { Card } from "primereact/card";
-import { Timestamp } from "firebase/firestore";
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../../firebase/firebase";
+import 'primeicons/primeicons.css';
 
 export const Tracker = () => {
 
@@ -62,19 +62,19 @@ export const Tracker = () => {
                         </span>
                     </div>
                     {!timerOn && time == 0 && (
-                        <Button className="px-3" onClick={() => setTimeOn(true)} label="Start" />
+                        <Button className="mx-2 px-3" onClick={() => setTimeOn(true)} label="Start" />
                     )}
                     {timerOn && (
-                        <Button className="px-3" onClick={() => setTimeOn(false)} label="Stop" />
+                        <Button className="mx-2 px-3" onClick={() => setTimeOn(false)} label="Stop" />
                     )}
                     {timerOn && time !== 0 && (
-                        <Button className="px-3" onClick={() => setTimeOn(true)} label="Resume" />
+                        <Button className="mx-2 px-3" onClick={() => setTimeOn(true)} label="Resume" icon="pi pi-fw pi-caret-right"/>
                     )}
                     {!timerOn && time > 0 && (
-                        <Button className="px-3" onClick={() => setTime(0)} label="Reset" />
+                        <Button className="mx-2 px-3" onClick={() => setTime(0)} label="Reset" icon="pi pi-fw pi-refresh"/>
                     )}
                     {!timerOn && time > 0 && (
-                        <Button className="px-3" onClick={() => setNewTimeTimeTracked(time)} label="Save" />
+                        <Button className="mx-2 px-3" onClick={() => setNewTimeTimeTracked(time)} label="Save" icon="pi pi-fw pi-bookmark"/>
                     )}
                     <br />
                     <Calendar className="m-3" placeholder="Date..." onChange={(e) => setNewTimeDate(Date(e.target.value))} />
@@ -83,7 +83,7 @@ export const Tracker = () => {
                     <br />
                 </Card>
                 <div className="mt-3">
-                    <Button onClick={onSubmitTime} label="Submit time data" />
+                    <Button onClick={onSubmitTime} label="Submit time data"/>
                 </div>
             </div>
         </div>

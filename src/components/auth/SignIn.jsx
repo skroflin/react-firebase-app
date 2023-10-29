@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { useNavigate } from "react-router-dom";
+import 'primeicons/primeicons.css';
 
 export const SignIn = () => {
     const navigate = useNavigate()
@@ -29,7 +30,7 @@ export const SignIn = () => {
                 <div className="flex-1 p-3">
                     <InputText type="password" placeholder="Password..." value={password} onChange={(e) => setPassword(e.target.value)} /> <br />
                 </div>
-                <Button className="mb-2" size="large" type="submit" label="Log in" />
+                <Button className="mb-2" size="large" type="submit" label="Log in" icon="pi pi-fw pi-user"/>
             </form>
             <a href="/sign-up">Click here to create an account</a>
         </div>

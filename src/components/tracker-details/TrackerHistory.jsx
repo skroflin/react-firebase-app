@@ -4,6 +4,7 @@ import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { NavBar } from "../NavBar";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
+import 'primeicons/primeicons.css';
 
 export const TrackerHistory = () => {
     const [timeList, setTimeList] = useState([]);
@@ -35,19 +36,29 @@ export const TrackerHistory = () => {
                     Tracker History
                 </h1>
                 <Card>
-                {timeList.map((time, idx) => (
-                    <>
-                        <div className="inline-block inline-block p-4 mx-4" key={idx}>
-                            <div className="inline-block p-1">{time.date.toString()}</div>
-                            <div className="inline-block p-1">{time.description}</div>
-                            <div className="inline-block p-1">{time.time_tracked.toLocaleString()}</div>
-                            <div className="inline-block p-1">
-                                <Button label="Delete time data" onClick={() => deleteTime(time.id)}/>
+                    {timeList.map((time, idx) => (
+                        <>
+                            <div className="inline-block inline-block" key={idx}>
+                                <ol>
+                                    <li>
+                                        <div className="inline-block p-1 text-left">{time.date.toString()}</div>
+                                    </li>
+                                    <li>
+                                        <div className="inline-block p-1 text-left">Description: {time.description}</div>
+                                    </li>
+                                    <li>
+                                        <div className="inline-block p-1 text-left">Time tracked: {time.time_tracked.toLocaleString()}</div>
+                                    </li>
+                                    <li>
+                                        <div className="inline-block p-1">
+                                            <Button label="Delete time data" onClick={() => deleteTime(time.id)} icon="pi pi-fw pi-trash"/>
+                                        </div>
+                                    </li>
+                                </ol>
+                                <hr className="px-10"/>
                             </div>
-                            <hr />
-                        </div>
-                    </>
-                ))}
+                        </>
+                    ))}
                 </Card>
             </div>
         </div>
