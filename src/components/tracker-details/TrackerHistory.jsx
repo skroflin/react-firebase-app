@@ -3,6 +3,7 @@ import { db } from "../../firebase/firebase";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { NavBar } from "../NavBar";
 import { Button } from "primereact/button";
+import { Card } from "primereact/card";
 
 export const TrackerHistory = () => {
     const [timeList, setTimeList] = useState([]);
@@ -30,19 +31,24 @@ export const TrackerHistory = () => {
         <div>
             <NavBar />
             <div>
-                {timeList.map((time) => (
+                <h1>
+                    Tracker History
+                </h1>
+                <Card>
+                {timeList.map((time, idx) => (
                     <>
-                        <div className="inline-block inline-block p-4 mx-4">
-                            <div className="inline-block p-4 mx-4">{time.date}</div>
-                            <div className="inline-block p-4 mx-4">{time.description}</div>
-                            <div className="inline-block p-4 mx-4">{time.time_tracked}</div>
-                            <div className="inline-block p-4 mx-4">
+                        <div className="inline-block inline-block p-4 mx-4" key={idx}>
+                            <div className="inline-block p-1">{time.date.toString()}</div>
+                            <div className="inline-block p-1">{time.description}</div>
+                            <div className="inline-block p-1">{time.time_tracked.toLocaleString()}</div>
+                            <div className="inline-block p-1">
                                 <Button label="Delete time data" onClick={() => deleteTime(time.id)}/>
                             </div>
                             <hr />
                         </div>
                     </>
                 ))}
+                </Card>
             </div>
         </div>
     )

@@ -18,6 +18,7 @@ export const NavBar = () => {
                     <AuthDetails />
                 </div>
             </nav>
+            <hr />
         </div>
     )
 }

@@ -76,7 +76,7 @@ export const Tracker = () => {
                         <Button className="px-3" onClick={() => setNewTimeTimeTracked(time)} label="Save" />
                     )}
                     <br />
-                    <Calendar className="m-3" placeholder="Date..." onChange={(e) => setNewTimeDate(String(e.target.value))} />
+                    <Calendar className="m-3" placeholder="Date..." onChange={(e) => setNewTimeDate(Date(e.target.value))} />
                     <br />
                     <InputTextarea className="m-3" placeholder="Description..." onChange={(e) => setNewTimeDescription(e.target.value)} />
                     <br />
