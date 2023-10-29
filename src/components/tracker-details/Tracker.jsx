@@ -6,7 +6,7 @@ import { NavBar } from "../NavBar";
 import { Card } from "primereact/card";
 import { Timestamp } from "firebase/firestore";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../../firebase/firebase";
+import { db, auth } from "../../firebase/firebase";
 
 export const Tracker = () => {
 
@@ -37,6 +37,7 @@ export const Tracker = () => {
                 date: newTimeDate,
                 description: newTimeDescription,
                 time_tracked: newTimeTimeTracked,
+                userId: auth?.currentUser?.uid,
             });
         } catch (err) {
             console.error(err)
